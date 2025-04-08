@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Expen$o</h1>
+        <div class="buttons">
+            <a href="{{url_for('login')}}"><button class="button">LOGIN</button></a>
+            <a href="{{url_for('signup')}}"><button class="button">SIGN UP</button></a>
+        </div>
+
+    </header>
+    <p class="quote">
+        "The goal isn't more money.<br>
+         The goal is living life on your terms."<br> - Chris Brogan</p> 
+
+    <p class="track-expenses">Track your expenses and live life on your terms!</p>
+</body>
+</html>
+

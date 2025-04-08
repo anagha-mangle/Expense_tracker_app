@@ -1,0 +1,91 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Expenso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ user.username }}!</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </header>
+
+    <main>
+        <h2>Your Financial Overview</h2>
+        <div class="financial-overview"></div>
+        <div>
+            <h3>Total Income: Rs {{ total_income }}</h3>
+            <h3>Total Expenses: Rs {{ total_expenses }}</h3>
+            <h3>Balance: Rs {{ balance }}</h3>
+            <h3>Monthly Budget: Rs {{ user.budget }}</h3>
+
+            <h4>
+                {% if budget_status == 'over' %}
+                    <span style="color: red;">You are over your budget!</span>
+                {% else %}
+                    <span style="color: green;">You are within your budget!</span>
+                {% endif %}
+            </h4>
+
+        </div>
+
+        <hr>
+
+        <h3>Transaction History</h3>
+        <table class="transaction-table"></table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.date.strftime('%d/%m/%Y') }}</td> 
+                    <td>{{ transaction.category }}</td>
+                    <td class="{{ 'income' if transaction.amount > 0 else 'expense' }}">
+                        Rs {{ transaction.amount }}
+                    </td>
+                    <td>{{ transaction.description }}</td>
+                    <td>{{ 'Income' if transaction.amount > 0 else 'Expense' }}</td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <hr>
+        <h3>Add New Transaction</h3>
+        <form action="{{ url_for('add_transaction') }}" method="POST" class="transaction-form">
+            <div>
+                <label for="amount">Amount:</label>
+                <input type="number" name="amount" step="0.01" required><br>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <input type="text" name="category" required><br>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" name="description"><br>
+            </div>
+            <div>
+                <label for="transaction_type">Transaction Type:</label>
+                <select name="transaction_type" required>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select><br>
+            </div>
+            <button type="submit">Add Transaction</button>
+        </form>
+    </main>
+
+</body>
+</html>

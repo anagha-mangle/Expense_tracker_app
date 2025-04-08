@@ -1,0 +1,94 @@
+body{
+    font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background-color: rgb(254, 255, 254);
+}
+
+header{
+    background-color: rgb(158, 169, 237);
+    padding:20px;
+    text-align:left;
+    display: flex; 
+    justify-content: space-between;
+}
+h1{
+    font-family: 'Cursive';
+    color:rgb(247, 247, 249);
+    margin:0;
+    font-size: 55px;
+    font-style: italic;
+}
+.quote {
+    font-family: 'Brush Script MT';
+    font-size: 45px;
+    color: #730cd3;
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    max-width: 90%; 
+}
+.track-expenses {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    color: #444;
+    margin-top: 60px;
+    font-style: italic;
+    text-align: center;
+}
+.buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+.button {
+    background-color: #6a74ea;
+    border: 2px solid #ccc;
+    color: rgb(221, 217, 218);
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: rgb(221, 73, 110);
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #6a74ea;
+    color: white;
+}
+
+.transaction-form div {
+    margin-bottom: 20px; /* Adds a gap between each form input */
+}
+
+.transaction-form label {
+    display: block; /* Ensures labels are displayed on a new line */
+    margin-bottom: 5px; /* Adds space between the label and input */
+}
+
+.transaction-form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
